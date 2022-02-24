@@ -1,0 +1,118 @@
+/* ===========
+| common css
+============*/
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a1929;
+  font-family: "Roboto", sans-serif;
+}
+
+/* heading  */
+
+.container {
+  text-align: center;
+  color: white;
+}
+
+/* heading section */
+h1 {
+  letter-spacing: 3px;
+}
+
+/* task added section */
+.task__creation {
+  margin-top: 10px;
+}
+
+.task__creation input {
+  padding: 15px 50px;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  font-size: 18px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  background-color: #f5f5f5;
+}
+
+.task__creation button {
+  padding: 13px 20px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* display area */
+
+.display__area ul .item {
+  display: flex;
+  justify-content: end;
+}
+
+.display__area ul .item li {
+  flex: 1;
+  text-align: start;
+  list-style: none;
+}
+
+.display__area ul .item li {
+  padding: 15px 30px;
+  background: #f5f5f5;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #0a1929;
+  margin: 1px 0px;
+}
+
+.display__area ul .item button {
+  outline: none;
+  border: none;
+  margin: 0px 1px;
+  background: #f5f5f5;
+  padding: 15px;
+  margin: 1px 1px;
+}
+
+.display__area ul .item button i {
+  font-size: 18px;
+  color: #0a1929;
+  pointer-events: none;
+}
+
+.display__area ul {
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.complete__task {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.edit__input {
+  padding: 5px 20px;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  font-size: 18px;
+
+  text-align: center;
+  letter-spacing: 2px;
+  background-color: #f5f5f5;
+}
+
+.check {
+  display: inline;
+}

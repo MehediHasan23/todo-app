@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Todo List</h1>
+    <div class="task__creation">
+      <input type="text" id="task" placeholder="Add A Task">
+      <button id="btn">Add</button>
+    </div>
+
+    <!-- item list -->
+    <div class="display__area">
+      <ul id="task__list">
+        <div class="item">
+          <li>ITEM -1</li>
+          <button class="edit"><i class="fas fa-pen"></i></button>
+          <button class="check"><i class="fas fa-check"></i></button>
+          <button class="delete"><i class="fas fa-trash"></i></button>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
