@@ -12,7 +12,7 @@
     if (e.key === 'Enter') {
       let taskInput = (task.value).toUpperCase();
       if ((!taskInput || taskInput.length < 3)) {
-        alert('Plz give minimum a task || Task name should be min 4 character')
+        alert('Plz give minimum a task || Task name should be min 3 character')
         return;
       } else if (taskInput === '   ' || taskInput === '    ') {
         alert('give a valid task name')
@@ -28,7 +28,7 @@
   btn.addEventListener('click', function (e) {
     let taskInput = (task.value).toUpperCase();
     if ((!taskInput || taskInput.length < 3)) {
-      alert('Plz give minimum a task || Task name should be min 4 character')
+      alert('Plz give minimum a task || Task name should be min 3 character')
       return;
     } else if (taskInput === '   ' || taskInput === '    ') {
       alert('give a valid task name')
