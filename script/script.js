@@ -10,13 +10,10 @@
 
   task.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-      let taskInput = (task.value).toUpperCase();
-      if ((!taskInput || taskInput.length < 3)) {
-        alert('Plz give minimum a task || Task name should be min 3 character')
+      let taskInput = (task.value).toUpperCase().trim();
+      if ((!taskInput)) {
+        alert('Plz give minimum a task')
         return;
-      } else if (taskInput === '   ' || taskInput === '    ') {
-        alert('give a valid task name')
-        return
       }
       addItem(taskInput)
       task.value = '';
@@ -26,13 +23,10 @@
   /* added event in add-btn */
 
   btn.addEventListener('click', function (e) {
-    let taskInput = (task.value).toUpperCase();
-    if ((!taskInput || taskInput.length < 3)) {
-      alert('Plz give minimum a task || Task name should be min 3 character')
+    let taskInput = (task.value).toUpperCase().trim();
+    if ((!taskInput)) {
+      alert('Plz give minimum a task')
       return;
-    } else if (taskInput === '   ' || taskInput === '    ') {
-      alert('give a valid task name')
-      return
     }
     addItem(taskInput)
     task.value = '';
@@ -51,6 +45,16 @@
           <button class="delete"><i class="fas fa-trash"></i></button>`
 
     taskList.appendChild(item)
+
+    let tasks = getDataLocalStorage()
+    let uniqueName = newTask;
+    tasks.forEach((task) => {
+      if (task.trim() === newTask) {
+        uniqueName += ' '
+      }
+    })
+    tasks.push(uniqueName)
+    setDataLocalStorage(tasks)
 
   }
 
@@ -74,6 +78,19 @@
 
   function deleteItem(e) {
     e.target.parentElement.remove()
+    let task = e.target.parentElement.firstElementChild.innerHTML
+    deleteDataFromLocalStorage(task)
+  }
+
+  /* delete data from localStorage */
+
+  function deleteDataFromLocalStorage(task) {
+
+    let tasks = getDataLocalStorage()
+    console.log(tasks);
+    let index = tasks.indexOf(task)
+    tasks.splice(index, 1)
+    setDataLocalStorage(tasks)
   }
 
 
@@ -110,5 +127,52 @@
     })
   }
 
+
+
+  /* local storage */
+
+  // onload function 
+  window.onload = function (e) {
+    let tasks = getDataLocalStorage()
+    tasks.forEach((task) => {
+      showData(task)
+    })
+
+  }
+
+  /* get item from local storage */
+  function getDataLocalStorage() {
+    let tasks;
+
+    let item = (localStorage.getItem('tasks'))
+
+    if (item) {
+      tasks = JSON.parse(item)
+    } else {
+      tasks = []
+    }
+    return tasks;
+  }
+
+
+  /* show data in UI */
+  function showData(task) {
+    let item = document.createElement('div')
+    item.className = 'item'
+    item.innerHTML = `
+          <li>${task}</li>
+          <button class="edit"><i class="fas fa-pen"></i></button>
+          <button class="check"><i class="fas fa-check"></i></button>
+          <button class="delete"><i class="fas fa-trash"></i></button>`
+
+    taskList.appendChild(item)
+  }
+
+
+  /* set data in local storage */
+
+  function setDataLocalStorage(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }
 
 })()
